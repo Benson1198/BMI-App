@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'results_page.dart';
 
 enum Gender { male, female }
 
@@ -195,11 +196,29 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             )),
-            Container(
-              color: Color(0xFFEB1E33),
-              margin: EdgeInsets.only(top: 10),
-              width: double.infinity,
-              height: kBottomContainerHeight,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ResultsPage();
+                    },
+                  ),
+                );
+              },
+              child: Container(
+                child: Center(
+                  child: Text(
+                    "CALACULATE",
+                    style: kLargeButtonTextStyle,
+                  ),
+                ),
+                color: Color(0xFFEB1E33),
+                margin: EdgeInsets.only(top: 10),
+                width: double.infinity,
+                height: kBottomContainerHeight,
+              ),
             )
           ],
         ));
