@@ -5,6 +5,8 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
 import 'results_page.dart';
+import 'bottom_button.dart';
+import 'round_icon_button.dart';
 
 enum Gender { male, female }
 
@@ -196,52 +198,16 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             )),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
+            BottomButton(
+                buttonTitle: "CALACULATE",
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
                       return ResultsPage();
                     },
-                  ),
-                );
-              },
-              child: Container(
-                child: Center(
-                  child: Text(
-                    "CALACULATE",
-                    style: kLargeButtonTextStyle,
-                  ),
-                ),
-                color: Color(0xFFEB1E33),
-                margin: EdgeInsets.only(top: 10),
-                width: double.infinity,
-                height: kBottomContainerHeight,
-              ),
-            )
+                  ));
+                }),
           ],
         ));
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({@required this.icon, @required this.onPressed});
-  final IconData icon;
-  final Function onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(icon),
-      onPressed: onPressed,
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      fillColor: Color(0xFF4C4F5E),
-    );
   }
 }
